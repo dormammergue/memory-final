@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload New Documents</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <jumbotron><img src='./images/topbanner2.jpg' width='100%'></jumbotron>
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <!--UPLOAD-->
+    <div id="uploaddiv">
+        <form enctype="multipart/form-data" id="form">
+            <input type="text" id="imagetitle" placeholder="Image Title"><br>
+            <input type="text" id="imageposter" placeholder="Who is posting/(User)?"><br>
+            <input type="text" id="imageowner" placeholder="Who owns it?"><br>
+            <input type="text" id="imagewhere" placeholder="Where is it from?"><br>
+            <input type="text" id="imagewho" placeholder="Who is it from?"><br>
+            <input type="text" id="description" placeholder="Describe the Item"><br>
+            <select name="category" id="category">
+            <option value=""> Choose a Category:</option>
+            <option value="Heirloom">Heirloom</option>
+            <option value="Art">Art</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Christmas">Christmas</option>
+            <option value="Misc">Misc.</option>
+        </select><br>
+            <input type="file" id="fileupload" name="myfile"><br><br>
+            <button id="submit">Submit Memory</button>
+        </form>
+        </span>
+    </div>
+    </div>
+
+    <img src="" id="output">
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        $('#submit').click(function (evt) {
+            var memoryDescription =
+                $("#description").val();
+
+            var memoryCategory =
+                $('#category').val();
+
+            var memoryTitle =
+                $('#imagetitle').val();
+
+            var memoryPoster =
+                $('#imageposter').val();
+
+            var memoryOwner =
+                $('#imageowner').val();
+
+            var memoryLocation =
+                $('#imagewhere').val();
+
+            var memoryGiver =
+                $('#imagewho').val();
+            evt.preventDefault();
+            console.log(new FormData($('#form')[0]));
+            $.ajax({
+                url: '/savefile',
+                type: 'POST',
+                data: new FormData($('#form')[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (filename) {
+                    console.log(filename)
+                    // $('#output').attr({
+                    //     'src': '/uploads/' + filename
+                    // });
+                    $.post("/api/newMemory/", {
+                        title: memoryTitle,
+                        user: memoryPoster,
+                        owner: memoryOwner,
+                        giver: memoryGiver,
+                        description: memoryDescription,
+                        category: memoryCategory,
+                        picture: filename,
+
+                    }, function (memory) {
+                        alert('you just posted!');
+                    });
+                }
+            });
+        });
+
+        $("#submitMemory").click(function () {
+            //get contents of memory
+            var memoryDescription =
+                $("#description").val();
+
+            var memoryCategory =
+                $('#category').val();
+
+            var memoryTitle =
+                $('#imagetitle').val();
+
+            var memoryPoster =
+                $('#imageposter').val();
+
+            var memoryOwner =
+                $('#imageowner').val();
+
+            var memoryLocation =
+                $('#imagewhere').val();
+
+            var memoryGiver =
+                $('#imagewho').val();
+
+
+            //send memory to server
+
+        });
+
+    </script>
+</body>
+
+</html>
