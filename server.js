@@ -17,15 +17,17 @@ app.use(bodyParser.urlencoded({
 // // // //  Session // // // // 
 // // // // // // // // // // // 
 
+var cookieSession = require("cookie-session");
+var secrets = require("./secrets/secrets.js");
+
 var session = require("express-session");
 app.use(session({
-	secret: 'keyboard cat', // secret key
+	secret: secrets.expressSecret, // secret key
 	resave: false, // default value
 	saveUninitialized: true, // saves empty objects
 }));
 
-var cookieSession = require("cookie-session");
-var secrets = require("./secrets/secrets.js");
+
 
 // // // // // // // // // // // 
 // // // // // MongoDB// // // // 
@@ -42,6 +44,8 @@ mongodb.MongoClient.connect('mongodb://localhost', function(err, database) {
 	db = database;
 	startListening();
 });
+
+
 
 // // // // // // // // // // // 
 // // // // // Multer// // // // 
