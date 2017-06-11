@@ -14,9 +14,11 @@ body{
 }
 .view-larger{
     text-align: center;
-    margin: 10px 10px 10px 300px;
+    margin: 10px 10px 10px 100px;
 }
 .larger{
    border: 15px solid #3e2b14;
   padding: 10px;
+  height: 600px;
+  float: auto; 
 }

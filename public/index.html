@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +9,43 @@
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-     <!--external style sheets-->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!--external style sheets-->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
     <jumbotron><img src='./images/topbanner2.jpg' width='100%'></jumbotron>
 
-<div class ="container">
-    <div class="row">
-  <div class="col-md-3"><div class="display-results"></div></div>
-  <div class="col-md-9"><div class="view-larger">
-      </div></div>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="display-results"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="view-larger">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
 
 <script>
-function buildAndDisplayLargerMemory(memory){
-    $(".view-larger").append(`
+    function buildAndDisplayLargerMemory(memory) {
+        
+        $(".view-larger").append(`
     <div class='larger-image'>
         <img 
             src='../uploads/${memory.picture}' 
@@ -52,67 +62,66 @@ function buildAndDisplayLargerMemory(memory){
             Category: ${memory.category}<br>
             Owned By: ${memory.owner}
         </div>
-    </div>`)
-}
+    </div>`
+    )};
 
     function buildAndDisplayMemory(memory) {
         $(".display-results").prepend(
-            `<span id='${memory._id}' class='memorydisplay'>
-                 <span class='image'>
-                            <img src='../uploads/${memory.picture}' class="thumbnails" data-memoryID="${memory._id}">
-                    </span>
-                    <span class="memoryInfo">
- 
-                        <span class='title'>
-                            <h4>
-                                <b>
-                                    <u>
-                                    ${memory.title}
-                                    </u>
-                                </b>
+            `<div id='${memory._id}' class='memorydisplay'>
+                <span class='image'>
+                    <img src='../uploads/${memory.picture}' class="thumbnails" id=${memory.picture} data-memoryId="${memory._id}">
+                </span>
+                <span class="memoryInfo">
+                     <span class='title'>
+                        <h4><b><u>
+                            ${memory.title}
+                            </u></b>
                                 <br>
                                 ${memory.category}
-                            </h4>
-                            
-                        </span><br>
+                            </h4>    
+                        </span>
+                        <br>
                         <span class='contents'>
                              ${memory.description} 
-                       </span>
+                         </span>
                         <span class='user'>
                             From User: <i>${memory.user}
                            </i> Owned By: <i>${memory.owner}</i>
-                       </span>
+                         </span>
                     </span>
-                       
-                            
-                        </span>
-                        
-                    </span>`
+                 </span>    
+            </div>`
         ); //closes out append after~display results
     }
 
-function buildClickHandler(){
-    var memoryId = memory._id; 
-        $(`#${memoryId}`).find(this.memory.picture);
-        console.log(this.memory.picture);
-        console.log('you clicked ' + this.memory.title)
-}
+    function buildClickHandler() {
+        var memoryId = memory._id;
+        var memorypicture = this.memory.picture;
+        console.log(`#${memoryId} > img`)
+         $(`#${memoryId}`).click(function () {
+             console.log(`You clicked on ${memoryId} & ${memorypicture}`);
+            buildAndDisplayLargerMemory(memory);
+            //  console.log(memory.picture)
+            // var memoryId = this.dataset.memoryId;
+            // console.log(memoryId);
+            // var imageLink = $(`#${memoryId}`).find(`#${memory.picture}`);
+            // console.log(imageLink);
+        });
+    }
 
 
 
-        $.get("/api/memories", function (memories) {
+    $.get("/api/memories", function (memories) {
         for (memory of memories) {
             buildAndDisplayMemory(memory);
-           
-        } //closes out for loop 
-         buildAndDisplayLargerMemory(memories[0]);
-        $('.thumbnails').click(buildClickHandler()
-            
-            // function(){
-            // console.log(`You clicked on ${memory.title}`)
-        )
-
+            $('.thumbnails').click(buildClickHandler()
+        )}; 
+        // buildAndDisplayLargerMemory(memories[memories.length - 2]);
     }); //closes out $.get
 
-    </script>
+
+    
+        
+</script>
+
 </html>
