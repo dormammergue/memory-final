@@ -60,8 +60,107 @@
         <h4 class="modal-title">Upload a New Memory</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <div id="uploaddiv">
+        <form enctype="multipart/form-data" id="form">
+            <input type="text" id="imagetitle" placeholder="Image Title"><br>
+            <input type="text" id="imageposter" placeholder="Who is posting/(User)?"><br>
+            <input type="text" id="imageowner" placeholder="Who owns it?"><br>
+            <input type="text" id="imagewhere" placeholder="Where is it from?"><br>
+            <input type="text" id="imagewho" placeholder="Who is it from?"><br>
+            <input type="text" id="description" placeholder="Describe the Item"><br>
+            <select name="category" id="category">
+            <option value=""> Choose a Category:</option>
+            <option value="Heirloom">Heirloom</option>
+            <option value="Art">Art</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Christmas">Christmas</option>
+            <option value="Misc">Misc.</option>
+        </select><br>
+            <input type="file" id="fileupload" name="myfile"><br><br>
+            <button id="submit">Submit Memory</button>
+        </form>
+        </span>
+    </div>
+    </div>
         <script>
+    $('#submit').click(function (evt) {
+            var memoryDescription =
+                $("#description").val();
+
+            var memoryCategory =
+                $('#category').val();
+
+            var memoryTitle =
+                $('#imagetitle').val();
+
+            var memoryPoster =
+                $('#imageposter').val();
+
+            var memoryOwner =
+                $('#imageowner').val();
+
+            var memoryLocation =
+                $('#imagewhere').val();
+
+            var memoryGiver =
+                $('#imagewho').val();
+            evt.preventDefault();
+            console.log(new FormData($('#form')[0]));
+            $.ajax({
+                url: '/savefile',
+                type: 'POST',
+                data: new FormData($('#form')[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (filename) {
+                    console.log(filename)
+                    // $('#output').attr({
+                    //     'src': '/uploads/' + filename
+                    // });
+                    $.post("/api/newMemory/", {
+                        title: memoryTitle,
+                        user: memoryPoster,
+                        owner: memoryOwner,
+                        giver: memoryGiver,
+                        description: memoryDescription,
+                        category: memoryCategory,
+                        picture: filename,
+
+                    }, function (memory) {
+                        alert('you just posted!');
+                    });
+                }
+            });
+        });
+
+        $("#submitMemory").click(function () {
+            //get contents of memory
+            var memoryDescription =
+                $("#description").val();
+
+            var memoryCategory =
+                $('#category').val();
+
+            var memoryTitle =
+                $('#imagetitle').val();
+
+            var memoryPoster =
+                $('#imageposter').val();
+
+            var memoryOwner =
+                $('#imageowner').val();
+
+            var memoryLocation =
+                $('#imagewhere').val();
+
+            var memoryGiver =
+                $('#imagewho').val();
+
+
+            //send memory to server
+
+        });
             </script>
       </div>
       <div class="modal-footer">
@@ -74,6 +173,9 @@
 
 
 </body>
+<footer><hr>
+    <center>&copy; 2017 Flyndyl&trade;</center>
+    </footer>
 
 <script>
 
@@ -107,24 +209,25 @@
         ); //closes out append after~display results
     }
 
-    function buildAndDisplayLargerMemory(memory, picture) {
+    function buildAndDisplayLargerMemory(memory, picture, giver, title, category, user, owner, description) {
         $(".view-larger").text('');
+        console.log(memory, picture)
         $(".view-larger").append(`
     <div class='larger-image'>
         <img 
-            src='../uploads/${this.memory.picture}' 
+            src='../uploads/${picture}' 
             class='larger'>
         <br>
-        <span class='largetitle'><h1>${this.memory.title}</h1></span>
-        <span class='largeinfo'><sup>Submitted by ${this.memory.user} </sup>
+        <span class='largetitle'><h1>${title}</h1></span>
+        <span class='largeinfo'><sup>Submitted by ${user} </sup>
         <br><img src="http://forgetmenotgts.co.uk/wp-content/themes/fmn/img/logo.png" class='drawnforgetmenot'>
         <div class='largedescription'>
-            ${this.memory.description}
+            ${description}
         </div><br>
-         <div class='largeinfo'>Given by ${this.memory.giver}
+         <div class='largeinfo'>Given by ${giver}
             <br>
-            Category: ${this.memory.category}<br>
-            Owned By: ${this.memory.owner}
+            Category: ${category}<br>
+            Owned By: ${owner}
             </span>
         </div>
     </div>`
@@ -133,10 +236,18 @@
     function buildClickHandler() {
         var memoryId = memory._id;
         var memorypicture = this.memory.picture;
+        var memorygiver = this.memory.giver; 
+        var memorytitle = this.memory.title; 
+        var memorycategory = this.memory.category;
+        var memoryuser = this.memory.user;
+        var memoryowner = this.memory.owner;
+        var memorydescription = this.memory.description;
+
+
         console.log(`#${memoryId} > img`)
          $(`#${memoryId}`).click(function () {
              console.log(`You clicked on ${memoryId} & ${memorypicture}`);
-            buildAndDisplayLargerMemory(memoryId, memorypicture);
+            buildAndDisplayLargerMemory(memoryId, memorypicture, memorygiver, memorytitle, memorycategory, memoryuser, memoryowner, memorydescription);
             //  console.log(memory.picture)
             // var memoryId = this.dataset.memoryId;
             // console.log(memoryId);
