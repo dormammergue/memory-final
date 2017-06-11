@@ -1,5 +1,8 @@
 body{
     font-family: monospace;
+     background-image: url('../images/forgetmenotside.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
 }
 .thumbnails{
     width: 300px;
@@ -8,6 +11,7 @@ body{
     margin: 10px 10px 10px 10px;
 }
 .display-results{
+    margin: 20px 10px 10px 10px;
     overflow-y: scroll; 
     height: 100vh;
     width: 20vw;
@@ -19,6 +23,16 @@ body{
 .larger{
    border: 15px solid #3e2b14;
   padding: 10px;
-  height: 600px;
+  height: 500px;
   float: auto; 
+}
+.drawnforgetmenot{
+    float: left;
+}
+.largetitle{
+    color: black;
+    text-shadow: 1px 1px 2px white, 0 0 25px blue, 0 0 5px darkblue;
+}
+h1{
+    font-size: 10em;
 }

@@ -25,45 +25,58 @@
 </head>
 
 <body>
-    <jumbotron><img src='./images/topbanner2.jpg' width='100%'></jumbotron>
-
+    <jumbotron><img src='./images/forgetmenot.jpg' width='100%'></jumbotron>
+                <!--MODAL-->
+                <button type="button" class="btn btn-info btn-lg upload" data-toggle="modal" data-target="#myModal" style='float: right; margin: 0% right;'>Add a New Memory</button>
+                <!--FINISH MODAL-->
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <div class="display-results"></div>
             </div>
             <div class="col-md-9">
+
+             
+
                 <div class="view-larger">
+                    Click on a memory to see it larger and read more details on this screen!
                 </div>
             </div>
         </div>
     </div>
 
+    <!--MODAL-->
+    <!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload a New Memory</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+        <script>
+            </script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 </body>
 
 <script>
-    function buildAndDisplayLargerMemory(memory) {
-        
-        $(".view-larger").append(`
-    <div class='larger-image'>
-        <img 
-            src='../uploads/${memory.picture}' 
-            class='larger'>
-        <br>
-        <h1 class='largetitle'>${memory.title}</h1>
-        <sup>Submitted by ${memory.user} </sup>
-        <br>
-        <div class='largedescription'>
-            ${memory.description}
-        </div><br>
-         <div class='largeinfo'>Given by ${memory.giver}
-            <br>
-            Category: ${memory.category}<br>
-            Owned By: ${memory.owner}
-        </div>
-    </div>`
-    )};
+
 
     function buildAndDisplayMemory(memory) {
         $(".display-results").prepend(
@@ -94,13 +107,36 @@
         ); //closes out append after~display results
     }
 
+    function buildAndDisplayLargerMemory(memory, picture) {
+        $(".view-larger").text('');
+        $(".view-larger").append(`
+    <div class='larger-image'>
+        <img 
+            src='../uploads/${this.memory.picture}' 
+            class='larger'>
+        <br>
+        <span class='largetitle'><h1>${this.memory.title}</h1></span>
+        <span class='largeinfo'><sup>Submitted by ${this.memory.user} </sup>
+        <br><img src="http://forgetmenotgts.co.uk/wp-content/themes/fmn/img/logo.png" class='drawnforgetmenot'>
+        <div class='largedescription'>
+            ${this.memory.description}
+        </div><br>
+         <div class='largeinfo'>Given by ${this.memory.giver}
+            <br>
+            Category: ${this.memory.category}<br>
+            Owned By: ${this.memory.owner}
+            </span>
+        </div>
+    </div>`
+    )};
+
     function buildClickHandler() {
         var memoryId = memory._id;
         var memorypicture = this.memory.picture;
         console.log(`#${memoryId} > img`)
          $(`#${memoryId}`).click(function () {
              console.log(`You clicked on ${memoryId} & ${memorypicture}`);
-            buildAndDisplayLargerMemory(memory);
+            buildAndDisplayLargerMemory(memoryId, memorypicture);
             //  console.log(memory.picture)
             // var memoryId = this.dataset.memoryId;
             // console.log(memoryId);
