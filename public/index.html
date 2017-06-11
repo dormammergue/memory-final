@@ -25,10 +25,12 @@
 </head>
 
 <body>
-    <jumbotron><img src='./images/forgetmenot.jpg' width='100%'></jumbotron>
+    <jumbotron><img src='./images/top.jpg' width='100%'></jumbotron>
+
                 <!--MODAL-->
                 <button type="button" class="btn btn-info btn-lg upload" data-toggle="modal" data-target="#myModal" style='float: right; margin: 0% right;'>Add a New Memory</button>
                 <!--FINISH MODAL-->
+
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -60,7 +62,7 @@
         <h4 class="modal-title">Upload a New Memory</h4>
       </div>
       <div class="modal-body">
-        <div id="uploaddiv">
+        <div class="uploaddiv">
         <form enctype="multipart/form-data" id="form">
             <input type="text" id="imagetitle" placeholder="Image Title"><br>
             <input type="text" id="imageposter" placeholder="Who is posting/(User)?"><br>
@@ -83,7 +85,7 @@
     </div>
     </div>
         <script>
-    $('#submit').click(function (evt) {
+         $('#submit').click(function (evt) {
             var memoryDescription =
                 $("#description").val();
 
@@ -164,7 +166,7 @@
             </script>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id='modalbutton'>Close</button>
       </div>
     </div>
 
@@ -174,7 +176,10 @@
 
 </body>
 <footer><hr>
-    <center>&copy; 2017 Flyndyl&trade;</center>
+    <center>
+        <img src="./images/forgetmenotheart.png">
+        <br>&copy; 2017 Flyndyl&trade;
+    </center>
     </footer>
 
 <script>
@@ -182,7 +187,7 @@
 
     function buildAndDisplayMemory(memory) {
         $(".display-results").prepend(
-            `<div id='${memory._id}' class='memorydisplay'>
+            `<hr><div id='${memory._id}' class='memorydisplay'>
                 <span class='image'>
                     <img src='../uploads/${memory.picture}' class="thumbnails" id=${memory.picture} data-memoryId="${memory._id}">
                 </span>
@@ -196,13 +201,6 @@
                             </h4>    
                         </span>
                         <br>
-                        <span class='contents'>
-                             ${memory.description} 
-                         </span>
-                        <span class='user'>
-                            From User: <i>${memory.user}
-                           </i> Owned By: <i>${memory.owner}</i>
-                         </span>
                     </span>
                  </span>    
             </div>`
@@ -242,11 +240,7 @@
         var memoryuser = this.memory.user;
         var memoryowner = this.memory.owner;
         var memorydescription = this.memory.description;
-
-
-        console.log(`#${memoryId} > img`)
          $(`#${memoryId}`).click(function () {
-             console.log(`You clicked on ${memoryId} & ${memorypicture}`);
             buildAndDisplayLargerMemory(memoryId, memorypicture, memorygiver, memorytitle, memorycategory, memoryuser, memoryowner, memorydescription);
             //  console.log(memory.picture)
             // var memoryId = this.dataset.memoryId;
@@ -266,8 +260,12 @@
         // buildAndDisplayLargerMemory(memories[memories.length - 2]);
     }); //closes out $.get
 
-
-    
+$('.close').click(function() {
+    location.reload();
+});
+$('#modalbutton').click(function(){
+    location.reload();
+});
         
 </script>
 
