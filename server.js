@@ -54,7 +54,7 @@ var multer = require("multer");
 var upload = multer({
 	dest: __dirname + '/uploads',
 	limits: {
-		fileSize: 10000000 // 10mb
+		fileSize: 10000000, // 10mb
 	}
 });
 
