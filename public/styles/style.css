@@ -62,3 +62,17 @@ body, a:hover {cursor: url(http://cur.cursors-4u.net/cursors/cur-9/cur840.cur), 
 .memoryInfo{
     text-align: center;
 }
+#previewimage{
+    width: 300px;
+}
+.modal-content{
+    background-image: url('../images/forgetmenotside.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h4{
+    font-size: 3em;
+}
+#form{
+    font-size: 2em;
+}

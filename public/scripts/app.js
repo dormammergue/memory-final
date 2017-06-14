@@ -1,31 +1,29 @@
+//   __                        _                                           
+//  (_      |_  ._ _  o _|_   /  | o  _ |    __   |_|  _. ._   _| |  _  ._ 
+//  __) |_| |_) | | | |  |_   \_ | | (_ |<        | | (_| | | (_| | (/_ |                                       
 $('#submit').click(function (evt) {
-//   _   _  _          _   _             _  ___       _      _  __ 
-//  | \ |_ /  |   /\  |_) |_   \  / /\  |_)  |   /\  |_) |  |_ (_  
-//  |_/ |_ \_ |_ /--\ | \ |_    \/ /--\ | \ _|_ /--\ |_) |_ |_ __)                                                  
+        //   _                                                     
+        //  | \  _   _ |  _. ._ _    \  / _. ._ o  _. |_  |  _   _ 
+        //  |_/ (/_ (_ | (_| | (/_    \/ (_| |  | (_| |_) | (/_ _> 
     var memoryDescription =
         $("#description").val();
-
     var memoryCategory =
         $('#category').val();
-
     var memoryTitle =
         $('#imagetitle').val();
-
     var memoryPoster =
         $('#imageposter').val();
-
     var memoryOwner =
         $('#imageowner').val();
-
     var memoryLocation =
         $('#imagewhere').val();
-
     var memoryGiver =
         $('#imagewho').val();
-    evt.preventDefault();
-    console.log(new FormData($('#form')[0]));                                                 
+    var memorywhere = 
+        $('#imagewhere').val();
+    evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
-//  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _> 
+//  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
 //                              |                                                                        
     $.ajax({
         url: '/savefile',
@@ -35,79 +33,73 @@ $('#submit').click(function (evt) {
         contentType: false,
         processData: false,
         success: function (filename) {
-            console.log(filename)
-            // $('#output').attr({
-            //     'src': '/uploads/' + filename
-            // });
             $.post("/api/newMemory/", {
+            //   _                         _   _  
+            //  |_) _   _ _|_   _|_  _    | \ |_) 
+            //  |  (_) _>  |_    |_ (_)   |_/ |_)                                   
                 title: memoryTitle,
                 user: memoryPoster,
                 owner: memoryOwner,
                 giver: memoryGiver,
                 description: memoryDescription,
                 category: memoryCategory,
-                picture: filename,
-                date: Date.now()
-            }, function (memory) {
-                alert('you just posted!');
-            });
+                dateofpost: Date,
+                picture: filename, 
+                where: memorywhere,          
+            },            
+            function (memory) {
+                clearInputs(); 
+                alert(`You just posted ${memoryTitle}!`);
+            });            
         }
-    });
+    });    
 });
-
-$("#submitMemory").click(function () {
-    //get contents of memory
-    var memoryDescription =
-        $("#description").val();
-
-    var memoryCategory =
-        $('#category').val();
-
-    var memoryTitle =
-        $('#imagetitle').val();
-
-    var memoryPoster =
-        $('#imageposter').val();
-
-    var memoryOwner =
-        $('#imageowner').val();
-
-    var memoryLocation =
-        $('#imagewhere').val();
-
-    var memoryGiver =
-        $('#imagewho').val();
-
-
-    //send memory to server
-
-});
-
+//   _                ___                   
+//  /  |  _   _. ._    |  ._  ._     _|_  _ 
+//  \_ | (/_ (_| |    _|_ | | |_) |_| |_ _> 
+//                            |         
+function clearInputs(){
+     document.getElementById('description').value = "";
+     document.getElementById('imagetitle').value = "";
+     document.getElementById('imageposter').value = "";
+     document.getElementById('imageowner').value = "";
+     document.getElementById('imagewhere').value = "";
+     document.getElementById('imagewho').value = "";
+     $('#previewimage').attr('src', '');
+     $('select').val('');
+}
+//    ___                                            
+//     | |_      ._ _  |_  ._   _. o |   |  o  _ _|_ 
+//     | | | |_| | | | |_) | | (_| | |   |_ | _>  |_     
 function buildAndDisplayMemory(memory) {
     $(".display-results").prepend(
         `<hr><div id='${memory._id}' class='memorydisplay'>
                 <span class='image'>
-                    <img src='../uploads/${memory.picture}' class="thumbnails" id=${memory.picture} data-memoryId="${memory._id}">
+                    <img src='../uploads/${memory.picture}' 
+                        class="thumbnails" id=${memory.picture} 
+                        data-memoryId="${memory._id}">
                 </span>
                 <span class="memoryInfo">
                      <span class='title'>
-                        <h4><b><u>
+                        <h3><b><u>
                             ${memory.title}
                             </u></b>
                                 <br>
                                 ${memory.category}
-                            </h4>    
+                            </h3>    
                         </span>
                         <br>
                     </span>
                  </span>    
             </div>`
-    ); //closes out append after~display results
+    ); 
 }
-
-function buildAndDisplayLargerMemory(memory, picture, giver, title, category, user, owner, description) {
+//    |   _. ._ _   _  ._   \  / o  _       
+//    |_ (_| | (_| (/_ |     \/  | (/_ \/\/ 
+//              _|                      
+function buildAndDisplayLargerMemory(memory, picture, giver, title, category, user, owner, description, date, where) {
     $(".view-larger").text('');
-    console.log(memory, picture)
+    console.log(memory, picture);
     $(".view-larger").append(`
                 <div class='larger-image'>
                     <img 
@@ -116,7 +108,7 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                     <br>
                     <span class='largetitle'><h1>${title}</h1></span>
                     <span class='largeinfo'><sup>Submitted by ${user} </sup>
-                    <br><img src="http://forgetmenotgts.co.uk/wp-content/themes/fmn/img/logo.png" class='drawnforgetmenot'>
+                    <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
                     <div class='largedescription'>
                         ${description}
                     </div><br>
@@ -128,9 +120,11 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                         </span>
                     </div>
                 </div>`
-    )
-};
-
+    );
+}
+//   _                                                 ___                              
+//  /  | o  _ |    __   |_|  _. ._   _| |  _  ._   o    | |_      ._ _  |_  ._   _. o | 
+//  \_ | | (_ |<        | | (_| | | (_| | (/_ |    o    | | | |_| | | | |_) | | (_| | |                                                                                      
 function buildClickHandler() {
     var memoryId = memory._id;
     var memorypicture = this.memory.picture;
@@ -140,25 +134,47 @@ function buildClickHandler() {
     var memoryuser = this.memory.user;
     var memoryowner = this.memory.owner;
     var memorydescription = this.memory.description;
-    $(`#${memoryId}`).click(function () {
-        buildAndDisplayLargerMemory(memoryId, memorypicture, memorygiver, memorytitle, memorycategory, memoryuser, memoryowner, memorydescription);
+    var memorydate = this.memory.dateofpost;
+    var memorywhere = this.memory.where;
+
+    $(`#${memorypicture}`).click(function () {
+        buildAndDisplayLargerMemory(memoryId, memorypicture, memorygiver, memorytitle, memorycategory, memoryuser, memoryowner, memorydescription, memorydate, memorywhere);
     });
 }
-
-
-
-$.get("/api/memories", function (memories) {
+//    _                                               
+//  (|     _   _ _|_   |\/|  _  ._ _   _  ._ o  _   _ 
+//  _|) o (_| (/_ |_   |  | (/_ | | | (_) |  | (/_ _> 
+//         _|                                         
+var memory;
+$.get("/api/memories", function (memories) {    
     for (memory of memories) {
         buildAndDisplayMemory(memory);
         $('.thumbnails').click(buildClickHandler()
-        )
-    };
-    // buildAndDisplayLargerMemory(memories[memories.length - 2]);
-}); //closes out $.get
-
+        );
+    }
+}); 
+//   _                                   
+//  /  |  _   _  _    |\/|  _   _|  _. | 
+//  \_ | (_) _> (/_   |  | (_) (_| (_| | 
 $('.close').click(function () {
     location.reload();
 });
 $('#modalbutton').click(function () {
     location.reload();
+});
+//   _                                              
+//  |_) ._ _     o  _         | | ._  |  _   _.  _| 
+//  |   | (/_ \/ | (/_ \/\/   |_| |_) | (_) (_| (_| 
+//                                |                 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#previewimage').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#fileupload").change(function(){
+    readURL(this);
 });

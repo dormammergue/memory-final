@@ -103,10 +103,12 @@ app.post('/api/newMemory', function(req, res) {
 	{   title: req.body.title, 
         user: req.body.user,
 		owner: req.body.owner, 
+		location: req.body.where,
         giver: req.body.giver,
         description: req.body.description, 
         category: req.body.category,
         picture: req.body.picture,
+		dateofpost: req.body.dateofpost,
 	},
 		function(err, data) {
 			if (err) {
@@ -123,6 +125,7 @@ app.post('/api/newMemory', function(req, res) {
   ////////////////////////////////////MIDDLEWARE///////////////////////////////////
  /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
+
   // // // // // // // // // // ///
  // // // Serve Static Files // // 
 // // // // // // // // // // /// 

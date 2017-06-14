@@ -40,25 +40,21 @@
             <input type="text" id="imagewho" placeholder="Who is it from?"><br>
             <input type="text" id="description" placeholder="Describe the Item"><br>
             <select name="category" id="category">
-            <option value=""> Choose a Category:</option>
-            <option value="Heirloom">Heirloom</option>
-            <option value="Art">Art</option>
-            <option value="Jewelry">Jewelry</option>
-            <option value="Christmas">Christmas</option>
-            <option value="Misc">Misc.</option>
-        </select><br>
-            <form id="form1" runat="server">
-    <input type='file' id="imgInp" />
-    <img id="blah" src="#" alt="your image" />
-</form>
+                <option value=""> Choose a Category:</option>
+                <option value="Heirloom">Heirloom</option>
+                <option value="Art">Art</option>
+                <option value="Jewelry">Jewelry</option>
+                <option value="Christmas">Christmas</option>
+                <option value="Misc">Misc.</option>
+            </select>
+            <br>
+            <input type="file" id="fileupload" name="myfile"><br><br>
             <button id="submit">Submit Memory</button>
         </form>
         </span>
     </div>
     </div>
 
-
-    <br><br><br><br><br><br><br><br><br><br><br>
     <script>
         $('#submit').click(function (evt) {
             var memoryDescription =
