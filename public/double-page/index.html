@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flipbook</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./extras/modernizr.2.5.3.min.js"></script>
+    <style>
+        .flipbook {
+            width: 800px;
+            height: 600px;
+        }
+
+        .flipbook .page {
+            width: 400px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=”flipbook”>
+        <div>Page 1</div>
+        <div>Page 2</div>
+        <div>Page 3</div>
+        <div>Page 4</div>
+    </div>
+</body>
+<script>
+    $('#flipbook').turn({
+        display: 'double',
+        inclination: 50,
+        when: {
+            turned: function(event, page, pageObj){
+                console.log('You are on page ' + page)
+            }
+        }
+    });
+    
+    </script>
+
+</html>
