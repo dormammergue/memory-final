@@ -93,3 +93,6 @@ hr {
     /* you need to match the shadow color to your background or image border for the desired effect*/
     box-shadow: 0 0 8px 8px white inset;
 }
+.view-larger{
+    font-size: 2em;
+}
