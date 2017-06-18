@@ -62,7 +62,7 @@ body, a:hover {cursor: url(http://cur.cursors-4u.net/cursors/cur-9/cur840.cur), 
 .memoryInfo{
     text-align: center;
 }
-.previewimage{
+#previewimage{
     width: 461px;
     float: right;
     margin: 0 0 10px 10px;

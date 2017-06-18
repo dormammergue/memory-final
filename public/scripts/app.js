@@ -71,6 +71,7 @@ function clearInputs(){
      document.getElementById('imageowner').value = "";
      document.getElementById('imagewhere').value = "";
      document.getElementById('imagewho').value = "";
+     document.getElementById('imagetags').value = "";
      $('#previewimage').attr('src', '');
      $('select').val('');
 }
