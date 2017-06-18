@@ -76,9 +76,13 @@ body{
 }
 
 .category{
-	text-align: right;
+	text-align: center;
 }
 
 .previmage{
 	width: 70%;
+}
+
+.user{
+	text-align: right;
 }
