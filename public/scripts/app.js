@@ -114,14 +114,13 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                     <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
                     <div class='largedescription'>
                         ${description}
-                    </div><br>
-                    <div class='largeeinfo'>
+                    
                         Given by ${giver}
                         <br>
                         Category: ${category}<br>
                         Owned By: ${owner}
                         </span>
-                    </div>
+                    
                 </div>`
     );
 }
