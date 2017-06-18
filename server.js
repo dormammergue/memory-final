@@ -109,6 +109,7 @@ app.post('/api/newMemory', function(req, res) {
         category: req.body.category,
         picture: req.body.picture,
 		dateofpost: req.body.dateofpost,
+		when: req.body.when
 	},
 		function(err, data) {
 			if (err) {

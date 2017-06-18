@@ -62,8 +62,11 @@ body, a:hover {cursor: url(http://cur.cursors-4u.net/cursors/cur-9/cur840.cur), 
 .memoryInfo{
     text-align: center;
 }
-#previewimage{
-    width: 300px;
+.previewimage{
+    width: 461px;
+    float: right;
+    margin: 0 0 10px 10px;
+    clear: left;
 }
 .modal-content{
     background-image: url('../images/forgetmenotside.jpg');
@@ -75,4 +78,18 @@ h4{
 }
 #form{
     font-size: 2em;
+}
+hr {
+  border: 0;
+  height: 0;
+  box-shadow: 0 0 10px 1px darkslateblue;
+}
+#bookdescription{
+    font-size: 1em;
+}
+.image-blurred-edge {
+    width: 40%;
+    height: 200px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 8px 8px white inset;
 }

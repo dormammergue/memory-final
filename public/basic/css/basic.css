@@ -66,11 +66,15 @@ body{
 	box-shadow:0 0 20px #ccc;
 }
 
-.thumbnails{
-	width: 400px;
-}
-
 .flipbook{
 	text-align: center;
 	font-family: monospace;
+}
+
+.memorytitle{
+	font-size: 3em
+}
+
+.category{
+	text-align: right;
 }

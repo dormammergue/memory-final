@@ -1,25 +1,41 @@
 <!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
 <meta name="viewport" content="width = 1050, user-scalable = no" />
 <script type="text/javascript" src="../extras/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="../extras/modernizr.2.5.3.min.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!--external style sheets-->
+    <link rel="stylesheet" href="../styles/style.css">
+	<title>Memory Book</title>
 </head>
 <body>
-
+<div class="image-blurred-edge"><jumbotron><img src='../images/top.jpg' width='100%'></jumbotron></div>
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
-			<div>Your Memories</div>
+			<div><h1 class='memorytitle'>Your Memories</h1></div>
 
 		</div>
 	</div>
 </div>
-
+<div class='button list'>
+	<button id='art'>Art</button>
+	</div>
 
 <script type="text/javascript">
 
@@ -48,29 +64,37 @@ function loadApp() {
 
 			autoCenter: true,
 
-			display: 'single',
+			display: 'double',
 
 	});
 
 }
+
+
 	$.get("/api/memories", function (memories) {
 			for (memory of memories) {
-				// if(memory.category === 'Jewelry'){
-				appendPage(memory);
-				// }
-			}
-		});
+				appendPage(memory);	
+		};
 
 		function appendPage(memory) {
 
 			$('.flipbook').append(`
-			<div id="${memory._id}">
-					<h1>${memory.title}</h1>
+			<div id="${memory._id}" class="memoryview ${memory.category}">
+					<h1 class='memorytitle'>${memory.title}</h1>
+					<hr>
+					<h2>${memory.category}</h2>
 					<img src='../../uploads/${memory.picture}' 
-                        class="thumbnails" id=${memory.picture} 
+                        class="previewimage" id=${memory.picture} 
                         data-memoryId="${memory._id}">
-		</div>`);
-		}
+					</div>
+
+					<div class="memoryview" ${memory.category}">
+					<br><br><br><br><br><br><br>
+						${memory.description}
+					<br><br><h4 class='category'><sub> ${memory.user}</sub></h4><br>	
+			</div>`);
+	}
+});
 
 // Load the HTML4 version if there's not CSS transform
 

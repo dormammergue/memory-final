@@ -21,6 +21,8 @@ $('#submit').click(function (evt) {
         $('#imagewho').val();
     var memorywhere = 
         $('#imagewhere').val();
+    var memorywhen = 
+        $('#imagewhen').val();
     evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
 //  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
@@ -45,7 +47,8 @@ $('#submit').click(function (evt) {
                 category: memoryCategory,
                 dateofpost: Date,
                 picture: filename, 
-                where: memorywhere,          
+                where: memorywhere,  
+                when: memorywhen        
             },            
             function (memory) {
                 clearInputs(); 
