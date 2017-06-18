@@ -115,7 +115,7 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                     <div class='largedescription'>
                         ${description}
                     </div><br>
-                    <div class='largeinfo'>
+                    <div class='largeeinfo'>
                         Given by ${giver}
                         <br>
                         Category: ${category}<br>
