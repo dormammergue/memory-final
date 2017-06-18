@@ -114,7 +114,8 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                     <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
                     <div class='largedescription'>
                         ${description}
-                    
+                        <hr>
+                    <br>
                         Given by ${giver}
                         <br>
                         Category: ${category}<br>
