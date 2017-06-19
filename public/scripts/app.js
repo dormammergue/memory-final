@@ -26,6 +26,8 @@ $('#submit').click(function (evt) {
         $('#imagewhen').val();
     var memorytags = 
         $('#imagetags').val();
+    var memoryprivacy = 
+        $('.publicorprivate').val();
     evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
 //  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
@@ -41,7 +43,7 @@ $('#submit').click(function (evt) {
             if (memoryTitle.length===0 || memoryPoster.length===0 || memoryDescription.length ===0 || memoryCategory.length ===0){
                 alert('You must enter a title, username, category, and description!');
             } else {
-                $('#waiting').append('Please wait for your image to upload...');
+                $('#waiting').append(`<img src="./images/fmngif.gif"><br>Please wait for your image to upload...`);
             $.post("/api/newMemory/", {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
@@ -56,7 +58,8 @@ $('#submit').click(function (evt) {
                 picture: filename, 
                 where: memorywhere,  
                 when: memorywhen,
-                tags: memorytags        
+                tags: memorytags,
+                privacy: memoryprivacy      
             },            
             function (memory) {
                 clearInputs(); 
@@ -78,6 +81,7 @@ function clearInputs(){
      document.getElementById('imagewho').value = "";
      document.getElementById('imagetags').value = "";
      document.getElementById('imagewhen').value = "";
+     document.getElementById('publicorprivate').value = "";
      $('#previewimage').attr('src', '');
      $('select').val('');
      $('#waiting').text('');
@@ -110,6 +114,7 @@ function buildAndDisplayMemory(memory) {
             </div>`
     ); 
 }
+
 //    |   _. ._ _   _  ._   \  / o  _       
 //    |_ (_| | (_| (/_ |     \/  | (/_ \/\/ 
 //              _|                      

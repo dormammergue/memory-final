@@ -53,14 +53,15 @@
      | |_      ._ _  |_  ._   _. o |   |  o  _ _|_ 
      | | | |_| | | | |_) | | (_| | |   |_ | _>  |_ 
                                                   -->
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="display-results">
+
                 </div>
             </div>
 <!--|   _. ._ _   _  ._   \  / o  _       
     |_ (_| | (_| (/_ |     \/  | (/_ \/\/ 
               _|                          -->
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="view-larger">
                   <!--                                    
                     \    / _  |  _  _  ._ _   _    |\/|  _   _  _  _.  _   _  
@@ -96,18 +97,27 @@
                     |_| |_) | (_) (_| (_|   | (_) |  | | | 
                         |                                  -->
                         <form enctype="multipart/form-data" id="form">
-                            <input type="text" id="imagetitle" placeholder="Image Title"><br>
-                            <input type="text" id="imageposter" placeholder="Who is posting/(User)?"><br>
-                            <input type="text" id="imageowner" placeholder="Who owns it?"><br>
-                            <input type="text" id="imagewhere" placeholder="Where is it from?"><br>
-                            <input type="text" id="imagewho" placeholder="Who is it from?"><br>
-                             <input type="text" id="imagewhen" placeholder="When is it from?"><br>
-                            <textarea rows="4" cols="25" name="comment" form="usrform" id="description" placeholder="Describe the Item"></textarea>
+                        <sub>Enter a Title for Your Image </sub><br>
+                            <input type="text" id="imagetitle" placeholder="***REQUIRED***"><br>
+                        <sub>Which User is Posting?</sub><br>
+                            <input type="text" id="imageposter" placeholder="***REQUIRED***"><br>
+                            <sub>Who Owns the Item/Memory?</sub><br>
+                            <input type="text" id="imageowner" placeholder=""><br>
+                            <sub>Where is the Memory From?</sub><br>
+                            <input type="text" id="imagewhere" placeholder=""><br>
+                            <sub>Who is it From?</sub><br>
+                            <input type="text" id="imagewho" placeholder=""><br>
+                            <sub>When is it from?</sub><br>
+                             <input type="text" id="imagewhen" placeholder=""><br>
+                             <sub>Describe the Item/Memory</sub><br>
+                            <textarea rows="4" cols="25" name="comment" form="usrform" id="description" placeholder="***REQUIRED***"></textarea>
                             <br>
-                             <input type="text" id="imagetags" placeholder="Enter descriptive tags separated by spaces.">
+                            <sub>Enter descriptive tags separated by spaces.</sub><br>
+                             <input type="text" id="imagetags" placeholder="">
                              <br>
+                             <sub>Choose a Category for Your Memory</sub><br>
                             <select name="category" id="category">
-                                <option value=""> Choose a Category:</option>
+                                <option value=""> **REQUIRED**</option>
                                 <option value="Heirloom">Heirloom</option>
                                 <option value="Art">Art</option>
                                 <option value="Clothing">Clothing</option>
@@ -120,9 +130,13 @@
                                 <option value="Toys">Toys</option>
                                 <option value="Pets">Pets</option>
                                 <option value="Misc">Misc.</option>
-                                
                             </select>
                             <br>
+                            <form class='privateorpublic'>
+   <sub>Would you like your memory to be public or private?</sub><br>
+     <input type="radio" name="private" value="public" checked> Public 
+  <input type="radio" name="private" value="private"> Private
+</form> 
                             <!--                         _         
                                 | | ._  |  _   _.  _|   |_ o |  _  
                                 |_| |_) | (_) (_| (_|   |  | | (/_ 
