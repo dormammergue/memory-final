@@ -28,7 +28,7 @@
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
-			<div id='intropage'><br><br><h1 class='memorytitle'>Your Memories</h1>
+			<div id='intropage'><br><br><br><br><h1 class='memorytitle'>Your Memories</h1>
 			</div>
 			</div>
 
@@ -83,6 +83,7 @@ function loadApp() {
 			$('.flipbook').append(`
 			<div id="${memory._id}" class="memoryview ${memory.category}">
 					<h1 class='memorytitle'>${memory.title}</h1>
+					
 					<hr>
 					<h2>${memory.category}</h2>
 					<img src='../../uploads/${memory.picture}' 
@@ -91,10 +92,12 @@ function loadApp() {
 					</div>
 
 					<div class="memoryview" ${memory.category}" width='75%'>
-					<br><br><br><br><br><br><br>
+					<br><br><img src='../images/forgetmenotheart.png'>
+					<br><br>
+					
 					<h2 class='category'>
 						${memory.description}</h2>
-					<br><br><h4 class='user'><sub> ${memory.user}</sub></h4><br>	
+					<br><hr><br><h5 class='user'> ${memory.user}</h5><br>	
 			</div>`);
 	}
 });

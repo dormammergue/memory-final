@@ -103,3 +103,7 @@ hr {
 #intropage{
     background-image: url('../images/forgetmenotside.jpg')
 }
+
+#waiting{
+    color: red;
+}

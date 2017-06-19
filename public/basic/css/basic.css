@@ -92,3 +92,11 @@ body{
 	color: darkslateblue;
 }
 
+.user{
+	font-size : 1.5em
+}
+
+#sideflower{
+	margin: auto;
+	float: right;
+}
