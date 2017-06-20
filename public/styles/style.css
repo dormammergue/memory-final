@@ -7,7 +7,11 @@ body{
 }
 .thumbnails{
     width: 300px;
-    border: 5px dotted #5F21D2;
+     border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(../images/border2.png) 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url(../images/border2.png) 30 stretch; /* Opera 11-12.1 */
+    border-image: url(../images/border2.png) 30 stretch;
 }
 .container{
     margin: 10px 10px 10px 10px;
@@ -16,7 +20,7 @@ body{
     margin: 20px 10px 10px 10px;
     overflow-y: scroll; 
     height: 100vh;
-    width:   100%;
+    width:    100%  ;
 }
 
 .contents{
@@ -30,10 +34,15 @@ body{
     margin: 10px 10px 10px 100px;
 }
 .larger{
-   border: 15px solid #5F21D2;
+ 
   padding: 10px;
   height: 500px;
   float: auto; 
+      border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url(../images/border.png) 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url(../images/border.png) 30 stretch; /* Opera 11-12.1 */
+    border-image: url(../images/border.png) 30 stretch;
 }
 .drawnforgetmenot{
     float: left;
