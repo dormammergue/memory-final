@@ -40,11 +40,11 @@ $('#submit').click(function (evt) {
         contentType: false,
         processData: false,
         success: function (filename) {
-            if (memoryTitle.length===0 || memoryPoster.length===0 || memoryDescription.length ===0 || memoryCategory.length ===0){
-                alert('You must enter a title, username, category, and description!');
-            } else {
-                $('#waiting').append(`<img src="./images/fmngif.gif"><br>Please wait for your image to upload...`);
-            $.post("/api/newMemory/", {
+            // if (memoryTitle.length===0 || memoryPoster.length===0 || memoryDescription.length ===0 || memoryCategory.length ===0){
+            //     alert('You must enter a title, username, category, and description!');
+            // } else {
+                // $('#waiting').append(`<img src="./images/fmngif.gif"><br>Please wait for your image to upload...`);
+                $.post("/api/newMemory/", {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
             //  |  (_) _>  |_    |_ (_)   |_/ |_)                                   
@@ -66,7 +66,7 @@ $('#submit').click(function (evt) {
                 alert(`You just posted ${memoryTitle}!`);
             });            
         }}
-    });    
+    );    
 });
 //   _                ___                   
 //  /  |  _   _. ._    |  ._  ._     _|_  _ 
