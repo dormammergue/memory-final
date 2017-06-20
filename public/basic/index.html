@@ -1,89 +1,91 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta name="viewport" content="width = 1050, user-scalable = no" />
-<script type="text/javascript" src="../extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="../extras/modernizr.2.5.3.min.js"></script>
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+	<meta name="viewport" content="width = 1050, user-scalable = no" />
+	<script type="text/javascript" src="../extras/jquery.min.1.7.js"></script>
+	<script type="text/javascript" src="../extras/modernizr.2.5.3.min.js"></script>
+	<!--jQuery-->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	 crossorigin="anonymous">
 
-    <!--external style sheets-->
-    <link rel="stylesheet" href="../styles/style.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script>
+
+	<!--external style sheets-->
+	<link rel="stylesheet" href="../styles/style.css">
 	<title>Memory Book</title>
 </head>
+
 <body>
-<div><jumbotron><img src='../images/top.jpg' width='40%'></jumbotron></div>
-<a href='../index.html'>'<button type="button" class="btn btn-info btn-lg logout" style='float: right; margin: 0% right;'>Return Home</button></a>
-<div class="flipbook-viewport">
-	<div class="container">
-		<div class="flipbook">
-			<div id='intropage'><br><br><br><br><h1 class='memorytitle'>Your Memories</h1>
-			</div>
+	<div>
+		<jumbotron><img src='../images/top.jpg' width='40%'></jumbotron>
+	</div>
+	<a href='../index.html'>'<button type="button" class="btn btn-info btn-lg logout" style='float: right; margin: 0% right;'>Return Home</button></a>
+	<div class="flipbook-viewport">
+		<div class="container">
+			<div class="flipbook">
+				<div id='intropage'><br><br><br><br>
+					<h1 class='memorytitle'>Your Memories</h1>
+				</div>
 			</div>
 
 		</div>
 	</div>
-</div>
-<!--<div class='button list'>
+	</div>
+	<!--<div class='button list'>
 	<button id='art'>Art</button>
 	</div>-->
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			function loadApp() {
 
+				// Create the flipbook
 
+				$('.flipbook').turn({
+					// Width
 
-$(document).ready(function() {
-	function loadApp() {
+					width: 922,
 
-	// Create the flipbook
+					// Height
 
-	$('.flipbook').turn({
-			// Width
+					height: 600,
 
-			width:922,
-			
-			// Height
+					// Elevation
 
-			height:600,
+					elevation: 50,
 
-			// Elevation
+					// Enable gradients
 
-			elevation: 50,
-			
-			// Enable gradients
+					gradients: true,
 
-			gradients: true,
-			
-			// Auto center this flipbook
+					// Auto center this flipbook
 
-			autoCenter: true,
+					autoCenter: true,
 
-			display: 'double',
+					display: 'double',
 
-	});
+				});
 
-};
+			};
 
-	$.get("/api/memories", function (memories) {
-			for (memory of memories) {
-				appendPage(memory);	
-		};
+			$.get("/api/memories", function (memories) {
+				for (memory of memories) {
+					appendPage(memory);
+				};
 
-		function appendPage(memory) {
+				function appendPage(memory) {
 
-			$('.flipbook').append(`
+					$('.flipbook').append(`
 			<div id="${memory._id}" class="memoryview ${memory.category}">
 					<h1 class='memorytitle'>${memory.title}</h1>
 					
@@ -102,25 +104,23 @@ $(document).ready(function() {
 						${memory.description}</h2>
 					<br><hr><br><h5 class='user'> ${memory.user}</h5><br>	
 			</div>`);
-	}
-});
-// Load the HTML4 version if there's not CSS transform
+				}
+			});
+			// Load the HTML4 version if there's not CSS transform
 
-yepnope({
-	test : Modernizr.csstransforms,
-	yep: ['../../lib/turn.js'],
-	nope: ['../../lib/turn.html4.min.js'],
-	both: ['css/basic.css'],
-	complete: loadApp
-});
-
-
-}
-	
+			yepnope({
+				test: Modernizr.csstransforms,
+				yep: ['../../lib/turn.js'],
+				nope: ['../../lib/turn.html4.min.js'],
+				both: ['css/basic.css'],
+				complete: loadApp
+			});
 
 
+		});
 
-</script>
+	</script>
 
 </body>
+
 </html>
