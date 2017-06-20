@@ -154,7 +154,7 @@ app.use(function(err, req, res, next) {
 //  // //Start the Server! // //
 // // // // // // // // // // // 
 function startListening() {
-	app.listen(8080, function() {
+	app.listen(80, function() {
 		console.log("👏🏼 LUKE, I AM YOUR SERVER! Listin in port 80");
 	});
 }
