@@ -37,6 +37,9 @@ $('#submit').click(function (evt) {
         contentType: false,
         processData: false,
         success: function (filename) {
+            if (memoryTitle.length === 0 || memoryPoster.length === 0 || memoryCategory.length === 0 || memoryDescription.length === 0){
+                alert('You forgot a required field!')
+            } else {
             $.post("/api/newMemory/", {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
@@ -57,7 +60,7 @@ $('#submit').click(function (evt) {
                 clearInputs(); 
                 alert(`You just posted ${memoryTitle}!`);
             });            
-        }
+        }}
     });    
 });
 //   _                ___                   
