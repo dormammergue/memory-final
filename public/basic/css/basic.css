@@ -135,6 +135,7 @@ body{
 	text-shadow:0px 1px 0px #5f21d2;
 }
 #purplebutton:hover {
+	z-index: 1000;
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c9b2f5), color-stop(1, #cc92f5));
 	background:-moz-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);
 	background:-webkit-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);

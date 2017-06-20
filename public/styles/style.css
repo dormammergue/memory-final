@@ -117,7 +117,6 @@ hr {
 
 /*BUTTONS*/
 .purplebutton {
-    z-index: 1000;
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cc92f5), color-stop(1, #c9b2f5));
 	background:-moz-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
 	background:-webkit-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
