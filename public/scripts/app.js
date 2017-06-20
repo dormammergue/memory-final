@@ -26,8 +26,8 @@ $('#submit').click(function (evt) {
         $('#imagewhen').val();
     var memorytags = 
         $('#imagetags').val();
-    var memoryprivacy = 
-        $('.privateorpublic').val();
+    // var memoryprivacy = 
+    //     $('.privateorpublic').val();
     evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
 //  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
@@ -59,7 +59,7 @@ $('#submit').click(function (evt) {
                 where: memorywhere,  
                 when: memorywhen,
                 tags: memorytags,
-                privacy: memoryprivacy      
+                // privacy: memoryprivacy      
             },            
             function (memory) {
                 clearInputs(); 
@@ -81,7 +81,7 @@ function clearInputs(){
      document.getElementById('imagewho').value = "";
      document.getElementById('imagetags').value = "";
      document.getElementById('imagewhen').value = "";
-     document.getElementById('publicorprivate').value = "";
+    //  document.getElementById('privateorpublic').value = "";
      $('#previewimage').attr('src', '');
      $('select').val('');
      $('#waiting').text('');

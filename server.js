@@ -112,7 +112,7 @@ app.post('/api/newMemory', function(req, res) {
 		dateofpost: req.body.dateofpost,
 		when: req.body.when,
 		tags: req.body.tags, 
-		privacy: req.body.privacy
+		// privacy: req.body.privacy
 	},
 		function(err, data) {
 			if (err) {
