@@ -42,7 +42,10 @@
 
 <script type="text/javascript">
 
-function loadApp() {
+
+
+$(document).ready(function() {
+	function loadApp() {
 
 	// Create the flipbook
 
@@ -71,8 +74,7 @@ function loadApp() {
 
 	});
 
-}
-
+};
 
 	$.get("/api/memories", function (memories) {
 			for (memory of memories) {
@@ -102,7 +104,6 @@ function loadApp() {
 			</div>`);
 	}
 });
-
 // Load the HTML4 version if there's not CSS transform
 
 yepnope({
@@ -112,6 +113,12 @@ yepnope({
 	both: ['css/basic.css'],
 	complete: loadApp
 });
+
+
+}
+	
+
+
 
 </script>
 
