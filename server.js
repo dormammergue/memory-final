@@ -94,11 +94,7 @@ app.get('/api/memories', function(req, res) {
 	});
 });
 
-////
-////memory cateogry testing///
-///////
 
-// app.get('/api/memories/:params')
 
  // // // // // // //  // // // // 
 // // // Post New Memory // // // 
