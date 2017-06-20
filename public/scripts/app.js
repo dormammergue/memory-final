@@ -83,7 +83,7 @@ function clearInputs(){
 //     | | | |_| | | | |_) | | (_| | |   |_ | _>  |_     
 function buildAndDisplayMemory(memory) {
     $(".display-results").prepend(
-        `<hr>
+        `
         <br><br><br>
         <div id='${memory._id}' class='memorydisplay'>
                 <span class='image'>
@@ -100,7 +100,8 @@ function buildAndDisplayMemory(memory) {
                                 ${memory.category}
                             </h3>    
                         </span>
-                        <br>
+                        <br><br><br>
+                        <hr>
                     </span>
                  </span>    
             </div>`
