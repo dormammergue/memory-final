@@ -27,7 +27,7 @@ $('#submit').click(function (evt) {
     var memorytags = 
         $('#imagetags').val();
     var memoryprivacy = 
-        $('.publicorprivate').val();
+        $('.privateorpublic').val();
     evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
 //  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
