@@ -154,3 +154,7 @@ hr {
   height: 0;
   box-shadow: 0 0 10px 1px #5f21d2;
 }
+
+.bringfront{
+	z-index: 1000;
+}

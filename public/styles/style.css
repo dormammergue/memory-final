@@ -53,6 +53,13 @@ body{
     text-shadow: 1px 1px 2px white, 0 0 25px #5F21D2, 0 0 5px darkblue;
     text-align: center
 }
+
+.largesttitle{
+    color: #5f21d2;
+    text-shadow: 1px 1px 2px white, 0 0 25px #5F21D2, 0 0 5px darkblue;
+    text-align: center
+}
+
 h1{
     font-size: 5em;
 }
@@ -152,3 +159,18 @@ hr {
 	position:relative;
 	top:1px;
 }
+
+
+a.top:link{
+    text-decoration:underline;
+    color:#5f21d2;
+    font-family: cursive;
+    font-size: 2em;
+    } 
+a.top:hover{
+    text-decoration:underline;
+     color:#cc92f5;
+     font-family: cursive;
+     font-size: 2em;
+    }
+

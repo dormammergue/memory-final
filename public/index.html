@@ -34,16 +34,17 @@
 </head>
 
 <body>
-    <jumbotron><img src='./images/fmntransp.png' width='100%'></jumbotron>
+    <jumbotron><img src='./images/fmntransp2.png' width='100%'></jumbotron>
                        _                     
 <!--
     |\/|  _   _|  _. |   |_)    _|_ _|_  _  ._  
     |  | (_) (_| (_| |   |_) |_| |_  |_ (_) | | 
                                                  -->
     <!--MODAL-->
-     <button type="button" class="btn btn-info btn-lg purplebutton" style='float: right; margin: 0% right;'>Log Out</button>
-     <a href='./basic/index.html'><button type="button" class="btn btn-info btn-lg purplebutton" style='float: right; margin: 0% right;'>View Your Memory Book</button></a>
-    <button type="button" class="btn btn-info btn-lg upload purplebutton" data-toggle="modal" data-target="#myModal" style='float: right; margin: 0% right;'>Add a New Memory</button>
+     <!--<button type="button" class="btn btn-info btn-lg purplebutton" style='float: right; margin: 0% right;'>Log Out</button>-->
+     <a href='./basic/index.html' style='float: right; margin: 15% right;' class='top'><img src='./images/bookbutton.png'><a href='#' data-toggle="modal" data-target="#myModal" style='float: right; margin: 0% right;' class='top'><img src='./images/addbutton.png'></a>
+     </a><br><br>
+    
    
     <!--FINISH MODAL-->
 <!-- _  ___        _  _      ___     ___       _  _  
@@ -71,10 +72,11 @@
                     \    / _  |  _  _  ._ _   _    |\/|  _   _  _  _.  _   _  
                      \/\/ (/_ | (_ (_) | | | (/_   |  | (/_ _> _> (_| (_| (/_ 
                                                                        _|     -->
-                    <div class='welcome'>Welcome to<br> <span class="largetitle" id='sitename'>Forget Me Not</span><br>
+                    <div class='welcome'>Welcome to<br> <span class="largesttitle" id='sitename'>Forget Me Not</span><br><img src='./images/smallflower.png' style='float: left'>
                      We are a <span class='largetitle'>memory database</span> designed to help you and your family keep track of precious <span class='largetitle'>belongings, memories,</span> and <span class='largetitle'>photographs.  </span> <br>
                      <br>
-                    <span class='largetitle'>Upload</span> your memory by clicking the <span class='largetitle'>Add a New Memory</span>  .<br>
+                    <span class='largetitle'>Upload</span> your memory by clicking the <span class='largetitle'>Add a New Memory</span> button in the upper right-hand corner.<br><br>
+                    <img src='./images/smallflower.png' style='float: right'>
                     You can then <span class='largetitle'>view</span> all of your memories in the lefthand column of your screen, and <span class='largetitle'>click</span> them to view them in a larger format.</div><br><br>
                    
                 </div>
@@ -92,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="largetitle">Upload a New Memory</h4>
+                    <h4 class="largesttitle">Upload a New Memory</h4>
                 </div>
                 <div class="modal-body">
                     <div class="uploaddiv">
@@ -116,8 +118,8 @@
                              <sub>Describe the Item/Memory</sub><br>
                             <textarea rows="4" cols="25" name="comment" form="usrform" id="description" placeholder="***REQUIRED***"></textarea>
                             <br>
-                            <sub>Enter descriptive tags separated by spaces.</sub><br>
-                             <input type="text" id="imagetags" placeholder="">
+                            <sub>Enter descriptive tags separated by spaces</sub><br>
+                             <input type="text" id="imagetags" placeholder="i.e. christmas ornament sequins">
                              <br>
                              <sub>Choose a Category for Your Memory</sub><br>
                             <select name="category" id="category">
@@ -141,7 +143,7 @@
                                 | | ._  |  _   _.  _|   |_ o |  _  
                                 |_| |_) | (_) (_| (_|   |  | | (/_ 
                                     |                              -->
-                            <center><input type='file' id="fileupload" name='myfile'/></center>
+                            <center><input type='file' id="fileupload" name='myfile' /></center>
                             <img id="previewimage" src="" alt="" />
                             <div id='waiting'></div>
                             <br><br>
@@ -149,7 +151,7 @@
                                 (_       |_  ._ _  o _|_ 
                                  __) |_| |_) | | | |  |_ -->
                          
-                            <button id="submit">Submit Memory</button>
+                            <button id="submit" class='purplebutton'>Submit Memory</button>
                         </form>
                         </div>
                     </div>
@@ -168,9 +170,9 @@
 <!-- __                  
     |_ _   _ _|_  _  ._ 
     | (_) (_) |_ (/_ |  -->                    
-<footer>
+<footer><br><br><br>
     <hr>
-    <center>
+    <center><br><br><br>
         <img src="./images/forgetmenotheart.png" width="5%" height="5%">
         <br>&copy; 2017 Flyndyl&trade;
     </center>
