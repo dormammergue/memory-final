@@ -6,7 +6,7 @@ body{
      background-attachment: fixed;
 }
 .thumbnails{
-    width: 300px;
+    width: 400px;
      border: 10px solid transparent;
     padding: 15px;
     -webkit-border-image: url(../images/border2.png) 30 stretch; /* Safari 3.1-5 */
@@ -15,6 +15,7 @@ body{
 }
 .container{
     margin: 10px 10px 10px 10px;
+    width: 1500px
 }
 .display-results{
     margin: 20px 10px 10px 10px;
@@ -116,9 +117,7 @@ hr {
 #waiting{
     color: red;
 }
-#form{
-    text-align: center;
-}
+
 
 /*BUTTONS*/
 .purplebutton {

@@ -90,11 +90,10 @@ app.get('/api/memories', function(req, res) {
 			res.send("error");
 			return;
 		}
+		console.log("MEMORIES:", data);
 		res.send(data);
 	});
 });
-
-
 
  // // // // // // //  // // // // 
 // // // Post New Memory // // // 
@@ -111,7 +110,7 @@ app.post('/api/newMemory', function(req, res) {
         picture: req.body.picture,
 		dateofpost: req.body.dateofpost,
 		when: req.body.when,
-		tags: req.body.tags, 
+		tags: req.body.tags
 	},
 		function(err, data) {
 			if (err) {
@@ -155,7 +154,7 @@ app.use(function(err, req, res, next) {
 //  // //Start the Server! // //
 // // // // // // // // // // // 
 function startListening() {
-	app.listen(80, function() {
+	app.listen(8080, function() {
 		console.log("👏🏼 LUKE, I AM YOUR SERVER! Listin in port 80");
 	});
 }

@@ -2,7 +2,6 @@
 //  (_      |_  ._ _  o _|_   /  | o  _ |    __   |_|  _. ._   _| |  _  ._ 
 //  __) |_| |_) | | | |  |_   \_ | | (_ |<        | | (_| | | (_| | (/_ |                                       
 $('#submit').click(function (evt) {
-    
         //   _                                                     
         //  | \  _   _ |  _. ._ _    \  / _. ._ o  _. |_  |  _   _ 
         //  |_/ (/_ (_ | (_| | (/_    \/ (_| |  | (_| |_) | (/_ _> 
@@ -24,10 +23,8 @@ $('#submit').click(function (evt) {
         $('#imagewhere').val();
     var memorywhen = 
         $('#imagewhen').val();
-    var memorytags = 
+        var memorytags = 
         $('#imagetags').val();
-    // var memoryprivacy = 
-    //     $('.privateorpublic').val();
     evt.preventDefault();                                   
 //  |\/|     | _|_  _  ._   | | ._  |  _   _.  _|  _ 
 //  |  | |_| |  |_ (/_ |    |_| |_) | (_) (_| (_| _`> 
@@ -40,11 +37,7 @@ $('#submit').click(function (evt) {
         contentType: false,
         processData: false,
         success: function (filename) {
-            // if (memoryTitle.length===0 || memoryPoster.length===0 || memoryDescription.length ===0 || memoryCategory.length ===0){
-            //     alert('You must enter a title, username, category, and description!');
-            // } else {
-                // $('#waiting').append(`<img src="./images/fmngif.gif"><br>Please wait for your image to upload...`);
-                $.post("/api/newMemory/", {
+            $.post("/api/newMemory/", {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
             //  |  (_) _>  |_    |_ (_)   |_/ |_)                                   
@@ -58,15 +51,14 @@ $('#submit').click(function (evt) {
                 picture: filename, 
                 where: memorywhere,  
                 when: memorywhen,
-                tags: memorytags,
-                // privacy: memoryprivacy      
+                tags: memorytags        
             },            
             function (memory) {
                 clearInputs(); 
                 alert(`You just posted ${memoryTitle}!`);
             });            
-        }}
-    );    
+        }
+    });    
 });
 //   _                ___                   
 //  /  |  _   _. ._    |  ._  ._     _|_  _ 
@@ -80,11 +72,8 @@ function clearInputs(){
      document.getElementById('imagewhere').value = "";
      document.getElementById('imagewho').value = "";
      document.getElementById('imagetags').value = "";
-     document.getElementById('imagewhen').value = "";
-    //  document.getElementById('privateorpublic').value = "";
      $('#previewimage').attr('src', '');
      $('select').val('');
-     $('#waiting').text('');
 }
 //    ___                                            
 //     | |_      ._ _  |_  ._   _. o |   |  o  _ _|_ 
@@ -114,7 +103,6 @@ function buildAndDisplayMemory(memory) {
             </div>`
     ); 
 }
-
 //    |   _. ._ _   _  ._   \  / o  _       
 //    |_ (_| | (_| (/_ |     \/  | (/_ \/\/ 
 //              _|                      
