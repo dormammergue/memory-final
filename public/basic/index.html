@@ -21,34 +21,54 @@
 	 crossorigin="anonymous"></script>
 
 	<!--external style sheets-->
-	<link rel="stylesheet" href="../styles/style.css">
 	<title>Memory Book</title>
 </head>
 
 <body>
 	<div>
-		<jumbotron><img src='../images/top.jpg' width='40%'></jumbotron>
+		<jumbotron><img src='../images/fmntransp.png' width='100%'></jumbotron>
 	</div>
-	<a href='../index.html'>'<button type="button" class="btn btn-info btn-lg logout" style='float: right; margin: 0% right;'>Return Home</button></a>
+	<a href='../index.html'>'<button type="button" class="btn btn-info btn-lg logout" style='float: right; margin: 0% right;' id='purplebutton'>Return Home</button></a>
 	<div class="flipbook-viewport">
 		<div class="container">
 			<div class="flipbook">
-				<div id='intropage' style='background-image: url("../images/forgetmenotside.jpg")'><br><br><br><br>
+				<div id='intropage' class='page'style='background-image: url("../images/forgetmenotside.jpg")'><br><br><br><br>
 					<h1 class='memorytitle'>Your Memories</h1>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					click the corners to turn the pages...
 				</div>
 			</div>
 
 		</div>
 	</div>
 	</div>
-	<!--<div class='button list'>
-	<button id='art'>Art</button>
-	</div>-->
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>					
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br>
+
+	<footer>
+    <hr>
+    <center>
+        <img src="../images/forgetmenotheart.png" width="5%" height="5%">
+        <br>&copy; 2017 Flyndyl&trade;
+    </center>
+</footer>
 
 	<script type="text/javascript">
 		window.onload= function () {
+			$('.container').hide();
 			$('.flipbook').hide(); 
-			$('#intropage').show();
+			$('#intropage').hide();
+			
 			function loadApp() {
 
 				// Create the flipbook
@@ -77,19 +97,21 @@
 					display: 'double',
 
 				});
+				
+				$('#intropage').show();
 				$('.flipbook').show();
+				$('.container').show();
 
 			};
-
 			$.get("/api/memories", function (memories) {
 				for (memory of memories) {
 					appendPage(memory);
 				};
-				
+		
 				function appendPage(memory) {
 
 					$('.flipbook').append(`
-			<div id="${memory._id}" class="memoryview ${memory.category}">
+			<div id="${memory._id}" class="memoryview ${memory.category} page">
 					<h1 class='memorytitle'>${memory.title}</h1>
 					
 					<hr>

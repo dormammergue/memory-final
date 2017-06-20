@@ -1,11 +1,17 @@
 /* Basic sample */
 
 body{
-	overflow:hidden;
+     font-family: monospace;
+     background-image: url('../../images/forgetmenotside.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+	 	overflow:scroll;
 	background-color:#fcfcfc;
 	margin:0;
 	padding:0;
 }
+
 
 .flipbook-viewport{
 	overflow:hidden;
@@ -15,16 +21,16 @@ body{
 
 .flipbook-viewport .container{
 	position:absolute;
-	top:50%;
-	left:50%;
+	top:25%;
+	left:25%;
 	margin:auto;
 }
 
 .flipbook-viewport .flipbook{
 	width:922px;
 	height:600px;
-	left:-461px;
-	top:-300px;
+	left:center;
+	top:250px;
 }
 
 .flipbook-viewport .page{
@@ -99,4 +105,51 @@ body{
 #sideflower{
 	margin: auto;
 	float: right;
+}
+
+/*#intropage{
+    background-image: url('../images/forgetmenotside.jpg')
+}*/
+
+/*BUTTONS*/
+#purplebutton {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cc92f5), color-stop(1, #c9b2f5));
+	background:-moz-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
+	background:-webkit-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
+	background:-o-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
+	background:-ms-linear-gradient(top, #cc92f5 5%, #c9b2f5 100%);
+	background:linear-gradient(to bottom, #cc92f5 5%, #c9b2f5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc92f5', endColorstr='#c9b2f5',GradientType=0);
+	background-color:#cc92f5;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #5f21d2;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:17px;
+	padding:8px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5f21d2;
+}
+#purplebutton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c9b2f5), color-stop(1, #cc92f5));
+	background:-moz-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);
+	background:-webkit-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);
+	background:-o-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);
+	background:-ms-linear-gradient(top, #c9b2f5 5%, #cc92f5 100%);
+	background:linear-gradient(to bottom, #c9b2f5 5%, #cc92f5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9b2f5', endColorstr='#cc92f5',GradientType=0);
+	background-color:#c9b2f5;
+}
+#purplebutton:active {
+	position:relative;
+	top:1px;
+}
+hr {
+  border: 0;
+  height: 0;
+  box-shadow: 0 0 10px 1px #5f21d2;
 }

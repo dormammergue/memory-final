@@ -99,9 +99,9 @@ function buildAndDisplayMemory(memory) {
                                 <br>
                                 ${memory.category}
                             </h3>    
+                                                    <hr>
                         </span>
-                        <br><br><br>
-                        <hr>
+
                     </span>
                  </span>    
             </div>`
