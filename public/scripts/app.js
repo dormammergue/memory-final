@@ -2,6 +2,7 @@
 //  (_      |_  ._ _  o _|_   /  | o  _ |    __   |_|  _. ._   _| |  _  ._ 
 //  __) |_| |_) | | | |  |_   \_ | | (_ |<        | | (_| | | (_| | (/_ |                                       
 $('#submit').click(function (evt) {
+    console.log('You Clicked')
         //   _                                                     
         //  | \  _   _ |  _. ._ _    \  / _. ._ o  _. |_  |  _   _ 
         //  |_/ (/_ (_ | (_| | (/_    \/ (_| |  | (_| |_) | (/_ _> 
@@ -38,8 +39,9 @@ $('#submit').click(function (evt) {
         processData: false,
         success: function (filename) {
             if (memoryTitle.length === 0 || memoryPoster.length === 0 || memoryCategory.length === 0 || memoryDescription.length === 0){
-                alert('You forgot a required field!')
+                alert('You forgot a required field!');
             } else {
+            $('#waiting').append('<br><br><br><marquee direction="left">...............</marquee>Your Image is Uploading, please wait<marquee direction="right">...............</marquee><br><br><br><br><br>');  
             $.post("/api/newMemory/", {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
@@ -75,8 +77,11 @@ function clearInputs(){
      document.getElementById('imagewhere').value = "";
      document.getElementById('imagewho').value = "";
      document.getElementById('imagetags').value = "";
+     document.getElementById('imagewhen').value= "";
      $('#previewimage').attr('src', '');
      $('select').val('');
+     $('#waiting').text('');
+    //  $('#submitspan').append(`<button id="submit" class='purplebutton'>Submit Memory</button>`);
 }
 //    ___                                            
 //     | |_      ._ _  |_  ._   _. o |   |  o  _ _|_ 
