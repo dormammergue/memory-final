@@ -42,7 +42,8 @@ $('#submit').click(function (evt) {
                 alert('You forgot a required field!');
             } else {
             $('#waiting').append('<br><br><br><marquee direction="left">...............</marquee>Your Image is Uploading, please wait<marquee direction="right">...............</marquee><br><br><br><br><br>');  
-            $.post("/api/newMemory/", {
+            $.post("/api/newMemory/", 
+            {
             //   _                         _   _  
             //  |_) _   _ _|_   _|_  _    | \ |_) 
             //  |  (_) _>  |_    |_ (_)   |_/ |_)                                   
