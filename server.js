@@ -110,7 +110,8 @@ app.post('/api/newMemory', function(req, res) {
         picture: req.body.picture,
 		dateofpost: req.body.dateofpost,
 		when: req.body.when,
-		tags: req.body.tags
+		tags: req.body.tags,
+		where: req.body.where
 	},
 		function(err, data) {
 			if (err) {

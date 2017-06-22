@@ -119,7 +119,8 @@ function buildAndDisplayMemory(memory) {
 function buildAndDisplayLargerMemory(memory, picture, giver, title, category, user, owner, description, date, where) {
     $(".view-larger").text('');
     console.log(memory, picture);
-    $(".view-larger").append(`
+    if (where === undefined){
+         $(".view-larger").append(`
                 <div class='larger-image'>
                     <img 
                         src='../uploads/${picture}' 
@@ -132,14 +133,81 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                         ${description}
                         <hr>
                     <br>
-                        Given by ${giver}
-                        <br>
+                        
                         Category: ${category}<br>
-                        Owned By: ${owner}
+                        Owned By: ${owner}<br>
+                        Given By: ${giver}
                         </span>
                     
                 </div>`
     );
+    } else if (giver === undefined){
+         $(".view-larger").append(`
+                <div class='larger-image'>
+                    <img 
+                        src='../uploads/${picture}' 
+                        class='larger'>
+                    <br>
+                    <span class='largetitle'><h1>${title}</h1></span>
+                    <span class='largeinfo'><sup>Submitted by ${user} </sup>
+                    <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
+                    <div class='largedescription'>
+                        ${description}
+                        <hr>
+                    <br>
+                        <br>
+                        From: ${where}<br>
+                        Category: ${category}<br>
+                        Owned By: ${owner}<br>
+                </div>`
+    );
+    } else if(owner === undefined){
+         $(".view-larger").append(`
+                <div class='larger-image'>
+                    <img 
+                        src='../uploads/${picture}' 
+                        class='larger'>
+                    <br>
+                    <span class='largetitle'><h1>${title}</h1></span>
+                    <span class='largeinfo'><sup>Submitted by ${user} </sup>
+                    <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
+                    <div class='largedescription'>
+                        ${description}
+                        <hr>
+                    <br>
+                        
+                        <br>
+                        From: ${where}<br>
+                        Category: ${category}<br>
+                        Given By: ${giver}
+                        </span>
+                </div>`
+         );
+    } else {
+                $(".view-larger").append(`
+                <div class='larger-image'>
+                    <img 
+                        src='../uploads/${picture}' 
+                        class='larger'>
+                    <br>
+                    <span class='largetitle'><h1>${title}</h1></span>
+                    <span class='largeinfo'><sup>Submitted by ${user} </sup>
+                    <br><img src="../images/forgetmenotdrawn.png" class='drawnforgetmenot'>
+                    <div class='largedescription'>
+                        ${description}
+                        <hr>
+                    <br>
+                        
+                        <br>
+                        From: ${where}<br>
+                        Category: ${category}<br>
+                        Owned By: ${owner}<br>
+                        Given By: ${giver}
+                        </span>
+                </div>`
+    );
+    }
+   
 }
 //   _                                                 ___                              
 //  /  | o  _ |    __   |_|  _. ._   _| |  _  ._   o    | |_      ._ _  |_  ._   _. o | 
