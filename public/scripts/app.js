@@ -182,7 +182,7 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                         Given By: ${giver}
                         </span>
                 </div>`
-         );
+         )
     } else {
                 $(".view-larger").append(`
                 <div class='larger-image'>
