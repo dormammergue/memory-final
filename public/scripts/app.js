@@ -141,7 +141,7 @@ function buildAndDisplayLargerMemory(memory, picture, giver, title, category, us
                     
                 </div>`
     );
-    } else if (giver === undefined){
+    } else if (giver === undefined || giver.length === 0){
          $(".view-larger").append(`
                 <div class='larger-image'>
                     <img 
