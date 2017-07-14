@@ -249,6 +249,7 @@ $('.close').click(function () {
 $('#modalbutton').click(function () {
     location.reload();
 });
+
 //   _                                              
 //  |_) ._ _     o  _         | | ._  |  _   _.  _| 
 //  |   | (/_ \/ | (/_ \/\/   |_| |_) | (_) (_| (_| 
